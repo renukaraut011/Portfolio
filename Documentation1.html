@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Networking Module</title>
+<style>
+body {
+  font-family: 'Courier New', monospace;
+  background: #1a1a1a;
+  color: #fff;
+  margin: 0;
+  padding: 0;
+}
+h1 {
+  text-align: center;
+  padding: 40px 0;
+  color: #715fe45d;
+}
+.tabs {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+.tab-button {
+  background: #333;
+  color: #fff;
+  padding: 10px 20px;
+  margin: 5px;
+  border: none;
+  cursor: pointer;
+  border-radius: 8px 8px 0 0;
+  transition: 0.3s;
+}
+.tab-button.active { background: #df8d89; color: #000; }
+.tab-content {
+  max-width: 800px;
+  margin: auto;
+  padding: 20px;
+  background: #222;
+  border-radius: 0 0 12px 12px;
+  display: none;
+}
+.tab-content.active { display: block; }
+</style>
+</head>
+<body>
+
+<h1>Networking Module - 7 Days</h1>
+
+<div class="tabs">
+  <button class="tab-button active" onclick="showTab(1)">Day 1</button>
+  <button class="tab-button" onclick="showTab(2)">Day 2</button>
+  <button class="tab-button" onclick="showTab(3)">Day 3</button>
+  <button class="tab-button" onclick="showTab(4)">Day 4</button>
+  <button class="tab-button" onclick="showTab(5)">Day 5</button>
+  <button class="tab-button" onclick="showTab(6)">Day 6</button>
+  <button class="tab-button" onclick="showTab(7)">Day 7</button>
+</div>
+
+<div class="tab-content active" id="tab1"><h2>Day 1: Introduction to networking</h2><p>
+
+We began with the very building blocks of networking—how information travels.</p>
+
+<p>Key components: sender, receiver, transmission medium (cables, wireless), message & protocol.<br>
+
+Modes of communication: simplex, half-duplex, full-duplex with practical examples like walkie-talkies vs. video calls.<br>
+
+Analog vs digital signals: why digital dominates in modern systems (noise immunity, easier processing).<br>
+
+Essential characteristics: speed, accuracy, reliability, security.<br>
+
+Real-world link: how a single WhatsApp message travels as packets from one phone to another through multiple networks.</p></div>
+<div class="tab-content" id="tab2"><h2>Day 2: Types of Network & Nature of Data</h2><p>We zoomed out to see how networks scale and how different types of data flow through them.</p>
+
+<p>LAN, MAN, WAN, PAN: From a home Wi-Fi network to global ISPs.<br>
+
+Client-server vs peer-to-peer models and their impact on scalability.<br>
+
+Bandwidth & latency trade-offs—why high-frequency trading needs ultra-low latency links.<br>
+
+Kinds of data: oriented (structured), observed (sensor data), inferred (predictions/analytics).<br>
+
+Glimpse into IoT ecosystems where these network types coexist..</p></div>
+<div class="tab-content" id="tab3"><h2>Day 3: The OSI Model Demystified</h2><p>The famous 7-layer OSI stack stopped being a buzzword and became a roadmap.</p>
+
+<p>Layers: Physical, Data Link, Network, Transport, Session, Presentation, Application.<br>
+
+Protocol examples: Ethernet, IP, TCP/UDP, SSL/TLS, HTTP/HTTPS, FTP.<br>
+
+Encapsulation & de-encapsulation: how data is wrapped with headers and footers at each layer.<br>
+
+Hands-on: tracing a packet’s journey from a laptop to a website using ping and traceroute.</p></div>
+<div class="tab-content" id="tab4"><h2>Day 4: Inside the Web: HTTP & DNS</h2><p>We opened the black box of the browser.</p>
+
+<p>DNS as the internet’s phonebook: converting example.com to an IP address.<br>
+
+HTTP/HTTPS request methods—GET, POST, PUT, DELETE—and how RESTful APIs use them.<br>
+
+Caching & response codes (2xx, 3xx, 4xx, 5xx) to handle web traffic efficiently.<br>
+
+Lab: using nslookup & browser dev-tools to watch a real DNS lookup in action.</p></div>
+<div class="tab-content" id="tab5"><h2>Day 5: Revision & DHCP in Action</h2><p>A quick OSI recap led to automatic IP management with DHCP.</p>
+
+<p>Difference between static and dynamic IPs.<br>
+
+DHCP handshake: Discover → Offer → Request → Acknowledge.<br>
+
+Checked a live router’s DHCP lease table and learned how ISPs dynamically assign addresses.</p></div>
+<div class="tab-content" id="tab6"><h2>Day 6: Low-Level Protocols & Diagnostics</h2><p>We explored the protocols that quietly keep networks alive.</p>
+
+<p>ARP (Address Resolution Protocol): maps IP to MAC addresses in a LAN.<br>
+
+ICMP (Internet Control Message Protocol): the backbone of tools like ping & traceroute.<br>
+
+DHCP Acknowledge: final confirmation of IP allocation.<br>
+
+Practical: tracing packets and identifying network bottlenecks using these tools.</p></div>
+<div class="tab-content" id="tab7"><h2>Day 7: From Theory to Zynq-Based App</h2><p>All the learning converged into a mini-project.</p>
+
+<p>Designed & submitted a Zynq FPGA-based application, applying concepts like DHCP, ARP & ICMP.<br>
+
+Understood how embedded systems communicate with larger networks.<br>
+
+Learned how these skills transfer to IoT devices, industrial automation, and edge computing.</p></div>
+
+<script>
+function showTab(day) {
+  const tabs = document.querySelectorAll('.tab-content');
+  tabs.forEach(tab => tab.classList.remove('active'));
+  document.getElementById('tab'+day).classList.add('active');
+
+  const buttons = document.querySelectorAll('.tab-button');
+  buttons.forEach(btn => btn.classList.remove('active'));
+  buttons[day-1].classList.add('active');
+}
+</script>
+
+</body>
+</html>
